@@ -9,8 +9,8 @@
 8. JavaScript Standard Style
 
 # Install
-npm install
-npm run dev(for dev-server)
-npm run test(for the standard style check)
-npm run production
-npm run webpack
+npm install    
+npm run dev(for dev-server)      
+npm run test(for the standard style check)     
+npm run production      
+npm run webpack      
