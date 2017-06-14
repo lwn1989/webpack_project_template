@@ -10,7 +10,7 @@ const defaultEnv = {
 
 const extractSass = new ExtractTextPlugin({
   filename: '[name].css',
-  disable: process.env.NODE_ENV === 'development'
+  disable: process.env.NODE_ENV !== 'production'
 })
 
 export default (env = defaultEnv) => ({
@@ -22,8 +22,7 @@ export default (env = defaultEnv) => ({
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.min.js',
-    publicPath: './'
+    filename: 'bundle.min.js'
   },
 
   plugins: [
@@ -57,10 +56,6 @@ export default (env = defaultEnv) => ({
           }
         ]
       },
-     // {
-     //   test: /\.html$/,
-     //   loader: 'raw-loader'
-     // },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
