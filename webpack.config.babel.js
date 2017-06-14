@@ -9,8 +9,8 @@ const defaultEnv = {
 }
 
 const extractSass = new ExtractTextPlugin({
-  filename: '[name].[contenthash].css',
-  disable: process.env.NODE_ENV !== 'production'
+  filename: '[name].css',
+  disable: process.env.NODE_ENV === 'development'
 })
 
 export default (env = defaultEnv) => ({
@@ -22,7 +22,8 @@ export default (env = defaultEnv) => ({
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.min.js'
+    filename: 'bundle.min.js',
+    publicPath: './'
   },
 
   plugins: [
@@ -56,11 +57,24 @@ export default (env = defaultEnv) => ({
           }
         ]
       },
-//      {
-//        test: /\.scss$/,
-//        include: path.join(__dirname, 'src/styles'),
-//        use: ['style-loader', 'css-loader', 'sass-loader']
-//      },
+     // {
+     //   test: /\.html$/,
+     //   loader: 'raw-loader'
+     // },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'img/'
+            }
+          }, {
+            loader: 'image-webpack-loader'
+          }
+        ]
+      },
       {
         test: /\.scss$/,
         include: path.join(__dirname, 'src/styles'),
