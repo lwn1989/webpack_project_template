@@ -34,8 +34,8 @@ export default (env = defaultEnv) => ({
       filename: 'index.html',
       template: path.join(__dirname, 'src/index.html')
     }),
-    extractSass,
-    new webpack.optimize.ModuleConcatenationPlugin()
+    extractSass
+    // new webpack.optimize.ModuleConcatenationPlugin()
   ],
   module: {
     rules: [

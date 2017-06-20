@@ -1,5 +1,6 @@
 # Webpack        
 version: 3.0.0    
+The Scope Hoisting conflicts with the HMR, disable it for now
 
 # Loaders and Plugins
 1. react-hot-loader/babel
