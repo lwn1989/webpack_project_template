@@ -1,3 +1,6 @@
+# Webpack        
+version: 3.0.0    
+
 # Loaders and Plugins
 1. react-hot-loader/babel
 2. transform-decorators-legacy
@@ -15,4 +18,3 @@ npm install
 npm run dev(for dev-server)      
 npm run test(for the standard style check)     
 npm run prod      
-npm run webpack      

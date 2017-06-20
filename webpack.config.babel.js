@@ -1,6 +1,6 @@
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import {HotModuleReplacementPlugin} from 'webpack'
+import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const defaultEnv = {
@@ -28,13 +28,14 @@ export default (env = defaultEnv) => ({
   plugins: [
     ...env.dev ? [
       // Webpack Development Plugins
-      new HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin()
     ] : [],
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, 'src/index.html')
     }),
-    extractSass
+    extractSass,
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
   module: {
     rules: [
